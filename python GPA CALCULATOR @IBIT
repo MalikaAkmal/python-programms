@@ -1,0 +1,77 @@
+# python-programms
+def each_gpa(t_marksf: int, o_marksf: int,t_marksm:int,o_marksm:int,tmarksS:int ,o_marksS:int):
+
+    
+    F_total= ((((o_marksf/t_marksf)*100)*0.4)+(((o_marksm/t_marksm)*100)*0.35)+(((o_marksS/tmarksS)*100)*0.25))
+    return F_total
+
+def default_gpa(t_marksf: int, o_marksf: int,t_marksm:int,o_marksm:int,tmarksS:int ,o_marksS:int):
+
+    G_total=o_marksf+o_marksm+o_marksS
+    return G_total
+print("--------MID MARKS--------------")
+mid=int(input("enter your mid obtained marks : "))
+t_mid=int(input("enter total marks of your paper : "))
+print("--------FINAL MARKS--------------")
+final=int(input("enter your final  obtained marks : "))
+t_final=int(input("enter total marks of yourfinal paper : "))
+print("--------SESSIONAL MARKS------------")
+sessional=int(input("enter your sessional marks : "))
+t_sessional=int(input("enter your total sessional marks : "))
+if(t_final>40 or t_mid>35 or t_sessional>25):
+
+    sub=input("enter your subject name : ")
+    result=each_gpa(t_mid,mid,t_final,final,t_sessional,sessional)
+    if(result>=85):
+         GPA=4
+    elif result>=80:
+        GPA=3.7
+    elif result>=75:
+        GPA=3.3
+    elif result>=70:
+        GPA=3.0
+    elif result>=65:
+        GPA=2.7
+    elif result>=60:
+        GPA=2.5
+    elif result>=58:
+        GPA=2.0
+    elif result>=55:
+        GPA=1.7
+    elif result>=50:
+        GPA=1.00
+    else:
+        print("======FAIL WITHDRAW THAT SUBJECT=======")
+    
+    
+    print("============RESULT GPA of",sub,"=================")
+    print("This is your result of your subject ",sub,":",result,"%")
+    print("======WITH THE GPA OF ",GPA,"=========")
+
+else:
+    sub=input("enter your subject name :")
+    result=default_gpa(t_mid,mid,t_final,final,t_sessional,sessional)
+    
+    if(result>=85):
+         GPA=4
+    elif result>=80:
+        GPA=3.7
+    elif result>=75:
+        GPA=3.3
+    elif result>=70:
+        GPA=3.0
+    elif result>=65:
+        GPA=2.7
+    elif result>=60:
+        GPA=2.5
+    elif result>=58:
+        GPA=2.0
+    elif result>=55:
+        GPA=1.7
+    elif result>=50:
+        GPA=1.00
+    else:
+        print("======FAIL WITHDRAW THAT SUBJECT=======")
+    print("============RESULT GPA of",sub,"================")
+    print("This is your result of your subject ",sub,":",result,"%")
+    print("======WITH THE GPA OF ",GPA,"=========")
