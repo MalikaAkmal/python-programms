@@ -1,0 +1,12 @@
+print("enter your mood\n1-LAZY\n2-HAPPY\n3-SAD\n4-DEMOTIVATED")
+no=int(input("enter number according to your feeling\n"))
+if no==1:
+    print("LAZINESS MAY APPEAR ATTARCTIVE BUT WORK GIVES SATISFACTION")
+elif no==2:
+    print("Happiness is not something ready-made. It comes from your own actions")
+elif no==3:
+    print("What brings us to tears, will lead us to grace. Our pain is never wasted")
+elif no==4:
+    print("Life is not fair. Get used to it")
+else :
+    print("Don't enter invalid number")
