@@ -1,0 +1,15 @@
+x=(input("enter the ist number"))
+y=(input("enter the ist number"))
+z=(input("enter the ist number"))
+if "."not in x:
+    print(f"enter digit is integer{x}")
+else:
+    print(f"enter digit is float{x}")
+if "."not in y:
+    print(f"enter digit is integer{y}")
+else:
+    print(f"enter digit is float{y}")
+if "."not in z:
+    print(f"enter digit is integer{z}")
+else:
+    print(f"enter digit is float{z}")
