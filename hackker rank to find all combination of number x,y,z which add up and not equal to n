@@ -1,0 +1,16 @@
+x=int(input("enter number"))
+y=int(input("enter number"))
+z=int(input("enter number"))
+n=int(input("enter number"))
+start=True
+
+while(start):
+    for i in range(x+1):
+        for j in range (y+1):
+            for k in range (z+1):
+                if i+j+k!=n:
+                    big_list.append([i,j,k])
+                    
+        
+    start=False
+print(big_list)
