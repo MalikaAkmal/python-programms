@@ -1,0 +1,34 @@
+
+    name_arr = []
+    score_arr = []
+    n = int(input())
+    
+    for i in range(n):
+        name = input()
+        score = float(input())
+        name_arr.append(name)
+        score_arr.append(score)
+        
+    #  Find the absolute lowest score
+    small = float('inf')
+    for i in range(n):
+        if score_arr[i] < small:
+            small = score_arr[i]  # FIXED: Changed score[i] to score_arr[i]
+
+    #  Find what the actual "second lowest" score value is
+    second_small_value = float('inf')
+    for i in range(n):
+        # The score must be greater than the lowest score, but smaller than anything else
+        if score_arr[i] > small and score_arr[i] < second_small_value:
+            second_small_value = score_arr[i]
+            
+#  Collect the names of everyone who has this second lowest score
+    second_low_names = []
+    for i in range(n):
+        if score_arr[i] == second_small_value:
+            second_low_names.append(name_arr[i])
+            
+    #  HackerRank requires the names to be printed in alphabetical order
+    second_low_names.sort()
+    for name in second_low_names:
+        print(name)
