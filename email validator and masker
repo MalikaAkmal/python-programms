@@ -1,0 +1,20 @@
+dom = ('com', 'uk', 'gov', 'edu', 'org', 'co')
+email = input("Enter your Email: ").strip().lower()
+
+# 1. Validation check
+# Count ensures exactly one '@'. Endswith checks if it ends with any of our valid domains.
+if email.count('@') == 1 and email.endswith(dom):
+    
+    # 2. Split the email into username and domain parts
+    # Example: "malika@gmail.com" becomes username="malika", domain_part="gmail.com"
+    username, domain_part = email.split('@')
+    
+    # 3. Mask the username
+    # Take the first letter, add asterisks, and take the last letter
+    masked_name = username[0] + "****" + username[-1]
+    
+    # 4. Re-assemble and print
+    print(f"Masked Email: {masked_name}@{domain_part}")
+
+else:
+    print("Invalid Email! Please ensure it has one '@' and ends with a valid domain.")
