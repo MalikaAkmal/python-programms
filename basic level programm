@@ -1,0 +1,33 @@
+cart = {}
+
+
+enter = True
+
+# 2. Shopping Phase: Just collect item names into a list
+while enter:
+    user = input("Enter item name (or type 'checkout' to finish): ").lower().strip()
+    
+    if user == "checkout":
+        enter = False
+    else:
+        # Check if the store actually sells this item
+            item_name=input()
+            Item_price=int(input("enter price"))
+            cart[item_name]=Item_price
+    
+
+# 3. Checkout Phase: Loop through the cart and add up prices from the catalog
+total_sum = 0
+for item in cart.values():
+    total_sum = total_sum+item # Looks up the price using the item name string
+
+print("\n--- Bill Summary ---")
+print(f"Items bought: {cart}")
+
+# 4. Currency Conversion Phase
+currency = input("Enter 1 to calculate bill in PKR or 0 for Dollar: ")
+if currency == "1":
+    total_sum *= 280
+    print(f"The total Bill is: {total_sum:,.2f} PKR")
+else:
+    print(f"The total Bill is: ${total_sum:,.2f}")
