@@ -1,0 +1,17 @@
+scores=[]
+new_score=[]
+for i in range(10):
+    x=int(input("enter score of students: "))
+    scores.append(x)
+
+minimum=min(scores)
+maximum=max(scores)
+add_no=50-mini
+for k in range (len(scores)):
+    new_no=min(100,scores[k]+add_no)
+    new_score.append(new_no)
+    
+print(scores)
+print(new_score)
+print("MAX SCORE IS::",maximum)
+print("MIN SCORE IS::",minimum)
