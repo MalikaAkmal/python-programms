@@ -1,0 +1,30 @@
+pun=[",",".","_","-","!","~",":",";","?","'","#"]
+text = " ".join(input("Enter paragraph: ").split())
+para=text
+
+for i in  pun:
+        para=para.replace(i,"")
+words=para.split()
+word_count={}
+for w in words:
+    if w in word_count:
+        word_count[w]=word_count[w]+1
+    else:
+        word_count[w]=1
+
+sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+
+# 2. Grab the top 3 items from the sorted list
+top_3 = sorted_words[:3]
+
+print("Top 3 most frequent words:")
+for word, count in top_3:
+    print(f"'{word}': {count} times")
+print("==============THE CLEAN PARAGRAPH=========")
+print(para)
+print("+++__________________________________+++++++++++")
+
+
+print(word_count)
+        
+     
