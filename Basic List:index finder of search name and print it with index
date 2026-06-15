@@ -1,0 +1,16 @@
+names = [
+    "Ahmed", "Sara", "Ali", "Zain", "Fatima", 
+    "John", "Mary", "David", "Emma", "Michael", 
+    "Ayesha", "Hamza", "Amna", "Bilal", "Sana", 
+    "James", "Olivia", "Robert", "Sophia", "William", 
+    "Usman"]
+get=False
+search=input("enter the name which you want to find: ")
+for i,name in  enumerate (names):
+    if search==name:
+        print(f"This name{search} found at this index{i} ")
+        get=True
+        break
+
+if get==False:
+    print("NOT FOUND PLEASE CHECH THE ENTERED NAME SPELLING")
