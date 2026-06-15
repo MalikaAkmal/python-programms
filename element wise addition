@@ -1,0 +1,14 @@
+new_list=[]
+list_a = [1, 2, 3, 4,5] 
+list_b = [10, 20, 30, 40]
+if len(list_a)==len(list_b):
+    for i in range(len(list_a)):
+        mul=list_a[i]*list_b[i]
+        new_list.append(mul)
+        show=True
+else:
+    print("The length of list is invalid")
+    show=False
+if show==True:
+    print("++++NEW LIST++++++")
+    print(new_list)
