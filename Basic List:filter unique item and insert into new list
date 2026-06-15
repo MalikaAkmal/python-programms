@@ -1,0 +1,10 @@
+item=["pen","scale","pencil","scale","board","bag","apple","scroll","happy","happy","scale","board","pencil","pen","scale"]
+new_list=[]
+for thing in item:
+     if thing  not in new_list:
+         new_list.append(thing)
+     else:
+        continue
+print("This is new list",new_list)
+print("the length of previous: ",len(item))
+print("the length of new: ",len(new_list))
