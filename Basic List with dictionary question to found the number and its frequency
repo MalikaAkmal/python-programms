@@ -1,0 +1,15 @@
+a_list=[4, 7, 4, 2,5,5,5,5,5,5,5,5,5,5, 4, 9, 7, 2, 4, 7, 7, 7, 1]
+count={}
+for i in  (a_list):
+    if i in count:
+        count[i]=count[i]+1
+    else:
+        count[i]=1
+digit=None
+high=0
+for num,j in count.items():
+    if j>high:
+        high=j
+        digit=num
+        
+print("the most frequent digit in the list is ",digit,"frequency of this ",high)
