@@ -1,0 +1,11 @@
+no_list=[23,5,678,900,345,789,33,56,777]
+maximum=float('-inf')
+minimum=float('inf')
+for i in range(len(no_list)):
+    if no_list[i]>maximum:
+        maximum=no_list[i]
+    elif no_list[i]<minimum:
+        minimum=no_list[i]
+        
+print("maximum number",maximum)
+print("minimum number",minimum)
