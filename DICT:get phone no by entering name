@@ -1,0 +1,61 @@
+friends={
+    "ramisha":13030303,
+    "alisha":232933890,
+    "minahil":983482901,
+    "Afifa":78912773,
+    "malika akmal":28382098,
+    "ayesha":888293890
+}
+name=input("enter name of your friend: ")
+print(friends[name])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# a_list=[4, 7, 4, 2,5,5,5,5,5,5,5,5,5,5, 4, 9, 7, 2, 4, 7, 7, 7, 1]
+# count={}
+# for i in  (a_list):
+#     if i in count:
+#         count[i]=count[i]+1
+#     else:
+#         count[i]=1
+# digit=None
+# high=0
+# for num,j in count.items():
+#     if j>high:
+#         high=j
+#         digit=num
+        
+# print
+        
+    
+
+
+    
