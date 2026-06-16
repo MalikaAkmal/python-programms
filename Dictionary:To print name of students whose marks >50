@@ -1,0 +1,6 @@
+marks = {"Ali": 85, "Sara": 42, "Zain": 76, "Fatima": 39,"Maliha":100,"Alia":100,"Sadia":98,"Rania":99,"Hadi":97,"ALish":34}
+#marks_list=list(marks.items())
+for k,i in marks.items():
+    if i>=50:
+        print(k)
+    
