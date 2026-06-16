@@ -1,0 +1,9 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+things={"laptop":30000,"mouse":2300,"charger":5000,"USB":9000,"keyboard":1200,"lED LIGHTS":3000}
+print("==========PREVIOUS THINGS================")
+print(things)
+things["monitor"]=12000
+things.update({"mouse":1800})
+print("==========NEW THINGS======================")
+print(things)
