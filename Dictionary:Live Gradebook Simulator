@@ -1,0 +1,16 @@
+grade={}
+start=True
+
+while(start):
+    question=input("Do you want to enter:")
+    if(question=="yes" or question=="Yes"):
+        start=True
+        name=input("enter name of student: ")
+        marks=input("enter marks of student: ")
+        grade[name]=marks
+    else:
+        start=False
+        break
+print(grade)
+    
+    
