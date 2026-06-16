@@ -1,0 +1,4 @@
+menu={"burger":2000,"Fries":1200,"Bottle":200,"Pizza":5000,"Donuts":1200,"Tea":500,"coffee":1300}
+new=list(menu.items())
+for k,r in menu.items():
+    print(k,"Rs:",r)
