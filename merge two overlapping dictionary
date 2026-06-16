@@ -1,0 +1,15 @@
+branch1 = {"pens": 10, "books": 5}
+branch2 = {"books": 12, "markers": 8}
+
+total_inventory = branch1.copy()
+
+for item, count in branch2.items():
+    
+    if item in total_inventory:
+        total_inventory[item] += count
+    
+    else:
+        total_inventory[item] = count
+
+print(total_inventory)
+
