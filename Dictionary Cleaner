@@ -1,0 +1,7 @@
+users = {"admin": "Active", "guest1": "Inactive", "manager": "Active", "guest2": "Inactive"}
+new_active={}
+for i in list(users.keys()):
+    if users[i]=="Inactive":
+        del users[i]
+        
+print(users)
