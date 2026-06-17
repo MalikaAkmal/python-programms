@@ -1,0 +1,23 @@
+employees = {
+    "Ahmed": {"role": "Developer", "salary": 60000},
+    "Amna": {"role": "Manager", "salary": 90000},
+    "Zain": {"role": "Developer", "salary": 65000},
+    "Fatima": {"role": "Designer", "salary": 55000},
+    "Ali": {"role": "Developer", "salary": 70000},
+    "Sara": {"role": "Analyst", "salary": 58000},
+    "Hamza": {"role": "Manager", "salary": 95000},
+    "Ayesha": {"role": "Developer", "salary": 62000},
+    "Saad": {"role": "Designer", "salary": 52000},
+    "Rawaha": {"role": "Developer", "salary": 80000},
+    "Haleema": {"role": "Analyst", "salary": 60000},
+    "Bilal": {"role": "Developer", "salary": 68000}
+}
+for name, info in employees.items():
+    if info["role"] == "Developer":
+        info["salary"] = info["salary"] * 1.10
+        print(f"Employee: {name}")
+        print(f"  Role:   {info['role']}")
+        print(f"  Salary: {info['salary']}")
+        print("-" * 30)  #   
+        
+    
