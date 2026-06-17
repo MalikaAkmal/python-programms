@@ -1,0 +1,20 @@
+import string
+students = {
+    "S101": {"name": "Ali", "major": "BBIT", "gpa": 3.4},
+    "S102": {"name": "Sara", "major": "ICS", "gpa": 3.8},
+    "S103": {"name": "Arif", "major": "SE", "gpa": 3.9},
+    "S104": {"name": "Muskan", "major": "BBIT", "gpa": 4.0},
+    "S105": {"name": "Zain", "major": "CS", "gpa": 2.8},
+    "S106": {"name": "Fatima", "major": "EE", "gpa": 3.5},
+    "S107": {"name": "Sadia", "major": "ICS", "gpa": 3.1},
+    "S108": {"name": "Rania", "major": "SE", "gpa": 3.7},
+    "S109": {"name": "Hania", "major": "BBIT", "gpa": 3.6},
+    "S110": {"name": "Alish", "major": "CS", "gpa": 2.9},
+    "S111": {"name": "Hamza", "major": "EE", "gpa": 3.3},
+    "S112": {"name": "Ayesha", "major": "SE", "gpa": 3.92}
+}
+search=str(input("Enter Studet ID: "))
+if search in students:
+    print(students[search]["name"], students[search]["gpa"])
+else:
+    print("Invalid")
