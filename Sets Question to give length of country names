@@ -1,0 +1,4 @@
+n = int(input())
+# Reads input() 'n' times and immediately converts the whole group into a set
+distinct_names = set(input() for _ in range(n))
+print(len(distinct_names))
