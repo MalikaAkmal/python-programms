@@ -1,0 +1,22 @@
+def minion_game(string):
+    k = 0
+    s = 0
+    vowel = "AEIOU"  # 
+    
+    for i in range(len(string)):
+        points = len(string) - i
+        if string[i] in vowel:
+            k += points
+        else:
+            s += points
+            
+    if k > s:
+        print(f"Kevin {k}")
+    elif s > k:
+        print(f"Stuart {s}")
+    else:
+        print("Draw")
+
+if __name__ == '__main__':
+    s = input().strip()
+    minion_game(s)
