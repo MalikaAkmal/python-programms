@@ -1,0 +1,9 @@
+def solve(s):
+    # Split by a single space to preserve any consecutive spaces
+    words = s.split(' ')
+    
+    # Capitalize the first letter of each word properly
+    capitalized_words = [word.capitalize() for word in words]
+    
+    # Join them back with a single space
+    return ' '.join(capitalized_words)
