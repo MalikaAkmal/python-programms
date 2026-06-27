@@ -1,0 +1,14 @@
+def double_dec(func):
+    def wrapper(*args, **kwargs):
+        # Pass the arguments into func so it knows what 'n' is!
+        twice = func(*args, **kwargs) 
+        return twice * 2
+    return wrapper
+
+@double_dec
+def get_number(n):
+    return n
+
+# Pass a number into the function here
+number = get_number(5) 
+print(number)  # This will now correctly print: 10
