@@ -1,0 +1,17 @@
+def enforce_string(func):
+    def wrapper(*args, **kwargs):
+        # args[0] is the very first argument passed to the function (user_name)
+        if args and isinstance(args[0], str):
+            return func(*args, **kwargs)  # Let the function run!
+        else:
+            print("Error: Argument must be a string!")
+            return None
+    return wrapper
+
+@enforce_string
+def clean_username(username):
+    print(f"Username is set to: {username.strip()}")
+
+# Test cases
+clean_username("  Malika  ") # Valid: prints clean username
+clean_username(1234)        # Invalid: triggers the security guard error!
