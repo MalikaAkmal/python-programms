@@ -1,0 +1,11 @@
+def html_dec(func):
+    def wrapper():
+        format_string=func()
+        return f"<p>{format_string}</p>"
+    return wrapper
+@html_dec
+def get_line():
+    s=input("enter a heading: ")
+    return s
+show=get_line()
+print(show)
