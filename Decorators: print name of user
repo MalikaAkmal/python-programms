@@ -1,0 +1,14 @@
+def announcement_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("--- Starting Execution ---")
+        func(*args, **kwargs)
+        print("--- Execution Finished ---")
+    return wrapper
+
+@announcement_decorator
+def greet_user():
+    s = input("enter your name: ")
+    print(f"Hello, {s}!")
+
+# This works beautifully now!
+greet_user()
