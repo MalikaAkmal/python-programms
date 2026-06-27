@@ -1,0 +1,17 @@
+def call_count(func):
+    count=0
+    def wrapper(*args, **kwargs):
+        nonlocal count
+        count+=1
+        print("The decorator function execute this time: ",count)
+        return func()
+    return wrapper
+@call_count
+def display():
+    print("Hiii")
+
+display()
+display()
+display()
+display()
+
