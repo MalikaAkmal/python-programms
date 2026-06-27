@@ -1,0 +1,23 @@
+def limit_range(func):
+    def wrapper(*args, **kwargs):
+        # 1. Run the function first to get the user's input value
+        level = func(*args, **kwargs)
+        
+        # 2. Check the returned value instead of args[0]
+        if 1 <= level <= 100:
+            print(f"Volume level successfully set to {level}%")
+            return level
+        else:
+            print("Error: Value must be between 1 and 100!")
+            return None
+            
+    return wrapper
+
+@limit_range
+def get_volume_input():
+    # Input is taken inside the function
+    s = int(input("Enter volume level (1-100): "))
+    return s
+
+# Run the program
+get_volume_input()
