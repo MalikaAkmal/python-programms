@@ -1,0 +1,11 @@
+def convert(func):
+    def wrapper(*args, **kwargs):
+        result=func()
+        return result.upper()
+    return wrapper
+@convert
+def get_string():
+    s=input("Enter the sentence: ")
+    return s
+name=get_string()
+print(name)
