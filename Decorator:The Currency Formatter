@@ -1,0 +1,11 @@
+def get_value(func):
+    def wrapper():
+        res=func()
+        return f"${res:.2f}"
+    return wrapper
+@get_value
+def get_amount():
+    s=int(input("Enter the amount: "))
+    return s
+format_amount=get_amount()
+print("This is the clean and well structure amount: ",format_amount)
