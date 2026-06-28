@@ -1,0 +1,26 @@
+import time
+
+def time_checker(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        
+        # 1. Run the function and store whatever it does/returns
+        result = func(*args, **kwargs)
+        
+        end_time = time.time()
+        time_consume = end_time - start_time
+        
+        # 2. Print the timing log here (.4f keeps it clean to 4 decimal places)
+        print(f"Function took {time_consume:.4f} seconds to execute.")
+        
+        # 3. Return the original function's result so the pipeline doesn't break
+        return result
+    return wrapper
+
+@time_checker
+def name_print():
+    name = input("Enter name: ")
+    time.sleep(2)  # Simulates work
+    print("Task completed")
+
+name_print()
