@@ -1,0 +1,21 @@
+def add_default_theme(func):
+    def wrapper(*args, **kwargs):
+        name, theme = func(*args, **kwargs)
+        
+        if theme == "black":
+            print(f"Rendering UI dashboard with theme: {theme}")
+            return name, theme  # Return BOTH variables
+        else:
+            theme = "white"     # Update the variable to the default theme
+            print(f"Rendering UI dashboard with theme: {theme}")
+            return name, theme  # Return BOTH variables to keep the structure safe
+            
+    return wrapper
+
+@add_default_theme
+def user_choice():
+    name = input("enter your name: ")
+    theme = input("Enter theme: ")
+    return name, theme
+
+user_choice()
