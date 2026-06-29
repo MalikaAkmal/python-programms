@@ -1,0 +1,17 @@
+def safe_execution(func):
+    def wrapper(*args,**kwargs):
+        try:
+            result=func(*args,**kwargs)
+            return result
+        except Exception as e: # Catching all exceptions
+
+            print("[System Warning]: An error occurred during execution!",e)
+            return None
+    return  wrapper
+@safe_execution
+def division():
+    a=int(input("enter a number: "))
+    b=int(input("enter a second number: "))
+    return a/b
+display=division()
+print("This is the division: ",display)
