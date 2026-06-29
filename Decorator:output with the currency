@@ -1,0 +1,15 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+def format_currency(func):
+    def wrapper(*args,**kwargs):
+        result=func(*args,**kwargs)
+        return f"amount: PKR {result:,.2f}"
+    return wrapper
+@format_currency
+def extra_cal():
+    base=int(input("Enter the base income: "))
+    bonus=int(input("Enter the bonus: "))
+    result=bonus+base
+    return result
+display=extra_cal()
+print(display)
