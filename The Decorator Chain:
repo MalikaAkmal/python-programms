@@ -1,0 +1,28 @@
+def double_feature(func):
+    def outer_wrapper(*args, **kwargs):
+        # Action 1: Do something before or capture data
+        print("[Outer Wrapper]: Entering...")
+        
+        def inner_wrapper(*args, **kwargs):
+            # Action 2: Do something deeper
+            print("[Inner Wrapper]: Deep execution...")
+            
+            # Execute the actual function
+            result = func(*args, **kwargs)
+            
+            # Modify the result for the inner layer
+            return f"*** {result} ***"
+            
+        # Execute the inner wrapper and get its result
+        inner_result = inner_wrapper(*args, **kwargs)
+        
+        # Modify the result for the outer layer
+        return f"[[ {inner_result} ]]"
+        
+    return outer_wrapper  # Return the starting point
+
+@double_feature
+def greet(name):
+    return f"Hello {name}"
+
+print(greet("Malika"))
