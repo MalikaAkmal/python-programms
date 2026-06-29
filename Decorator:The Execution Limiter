@@ -1,0 +1,19 @@
+def call_limit(func):
+    calls=0
+    def wrapper(*args,**kwargs):
+        nonlocal calls
+        calls+=1
+        if calls<=3:
+            print(f"[Log]: Call number {calls} of 3.")
+            return func(*args, **kwargs)
+        else:
+            print("[Access Denied]: You have exceeded the maximum execution limit of 3 calls!")
+            return None
+    return wrapper
+@call_limit
+def message():
+    print("Hello This is your first Web Page")
+message()
+message()
+message()
+message()
