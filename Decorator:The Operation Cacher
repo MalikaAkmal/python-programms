@@ -1,0 +1,36 @@
+import time
+
+def cache_manager(func):
+    last_args = None
+    last_result = None
+    
+    def wrapper(*args, **kwargs):
+        nonlocal last_args, last_result
+        
+        # 1. Check the cache FIRST before running anything!
+        if args == last_args:
+            print("[Cache Hit]: Returning cached result instantly...")
+            return last_result
+        else:
+            print("[Cache Miss]: Calculating fresh result...")
+            # 2. Run the function only on a miss
+            result = func(*args, **kwargs)
+            
+            # 3. Update the memory with the current inputs and outputs
+            last_args = args
+            last_result = result
+            
+            # 4. Return the calculated answer
+            return result
+            
+    return wrapper
+
+@cache_manager
+def calculator(a):
+    time.sleep(2)  # Simulates a heavy operation
+    return a * 2
+
+# Test cases passing data from the outside to watch the cache work:
+print("Result:", calculator(10))  # 1st time: Miss (Takes 2 seconds)
+print("Result:", calculator(10))  # 2nd time: Hit (Instant!)
+print("Result:", calculator(5))   # 3rd time: Miss (Takes 2 seconds)
