@@ -1,0 +1,38 @@
+import time
+from functools import wraps
+def checker(seconds):
+    def actual_decorator(func):
+        last_call=0
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            nonlocal last_call
+            elapsed = time.time() - last_call
+            if elapsed<seconds:
+                print("[Rate Limited]: Function called too fast! Please wait before trying again.")
+            else:
+                last_call= time.time()
+                result=func(*args,**kwargs)
+                return result
+        return wrapper
+    return actual_decorator
+    
+@checker(seconds=3)
+def send_message(msg):
+    print(f"Message Sent: {msg}")
+
+# --- Test Sequence ---
+print("--- Call 1 (Immediate) ---")
+send_message("Hello World!")
+
+print("\n--- Call 2 (Spamming immediately after) ---")
+send_message("Hello again!")
+
+print("\n--- Waiting 2.5 seconds... ---")
+time.sleep(2.5)
+
+print("\n--- Call 3 (After cooling period) ---")
+send_message("Success after waiting!")
+                
+                
+                
+            
