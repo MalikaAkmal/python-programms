@@ -1,0 +1,35 @@
+import math
+from functools import wraps
+
+def memoize_vault(func):
+    cache_vault = {}  # Our memory storage box
+    
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        # 1. Check if these input arguments have been seen before
+        if args in cache_vault:
+            print("[Cache Hit]: Fetching pre-calculated value from memory vault...")
+            return cache_vault[args]  # Instantly hand back the saved result!
+            
+        # 2. If it's a new input, calculate it freshly
+        print("[Cache Miss]: Calculating fresh result...")
+        answer = func(*args, **kwargs)
+        
+        # 3. Save the result in our vault using 'args' as the key
+        cache_vault[args] = answer
+        return answer
+        
+    return wrapper
+
+@memoize_vault
+def no_factorial(n):
+    return math.factorial(n)
+
+# --- Test Cases ---
+print("--- Round 1 ---")
+print("The Answer of calculation is:", no_factorial(5))
+
+print("\n--- Round 2 (Should hit cache!) ---")
+print("The Answer of calculation is:", no_factorial(10))
+print("\n--- Round 3 (Should hit cache!) ---")
+print("The Answer of calculation is:", no_factorial(10))
