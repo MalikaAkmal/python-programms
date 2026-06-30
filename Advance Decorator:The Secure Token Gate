@@ -1,0 +1,20 @@
+def checker(pass_key):
+    def actual_decorator(func):
+        def wrapper(*args,**kwargs):
+            user_token=kwargs.get('n')
+            if user_token==pass_key:
+                return func(*args,**kwargs)
+            else:
+                print("[Unauthorized Access]: Invalid or missing security token!")
+                return None
+        return wrapper
+    return actual_decorator
+@checker(pass_key="admin123")
+def data_acces(n):
+    #n=input("Enter the pass_key: ")
+    print("Database connection established. Secure records fetched successfully.")
+   # return n
+password=input("Enter your pass_key: ")
+n=data_acces(n=password)
+
+    
