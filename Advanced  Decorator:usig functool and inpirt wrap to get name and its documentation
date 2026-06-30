@@ -1,0 +1,32 @@
+from functools import wraps  # 1. Imported the tool
+
+def checker(pass_key):
+    def actual_decorator(func):
+        @wraps(func)         # 2. Applied the stamp right here!
+        def wrapper(*args, **kwargs):
+            user_token = kwargs.get('n') or (args[0] if args else None)
+            if user_token == pass_key:
+                return func(*args, **kwargs)
+            else:
+                print("[Unauthorized Access]: Invalid token!")
+                return None
+        return wrapper
+    return actual_decorator
+
+@checker(pass_key="admin123")
+def data_acces(n):
+    """
+    ACCESS CONTROLLED: This function connects to the secure database 
+    and extracts corporate financial logs.
+    """
+    print("Database connection established.")
+
+# Test code
+data_acces(n="admin123")
+
+# 3. Check the identity attribute!
+print("Name of the function")
+print("The function's real name is:", data_acces.__name__)
+print("-"*40)
+print("Documentation")
+print(data_acces.__doc__)
