@@ -1,0 +1,26 @@
+import time
+from functools import wraps
+
+def performance_timer(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        load_time = end - start
+        
+        # Fixed using an f-string to inject the real name and variable time!
+        print(f"[Benchmark]: Function '{func.__name__}' took {load_time:.6f} seconds to run.")
+        return result
+    return wrapper
+
+@performance_timer
+def sum_function(n):
+    sum_get = 0
+    for i in range(1, n + 1):
+        sum_get += i  # Fixed variable name to match sum_get
+    return sum_get
+
+# Test with a larger number to actually see the time pass!
+n = sum_function(1000000)
+print("Result:", n)
