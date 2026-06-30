@@ -1,0 +1,19 @@
+def multi_greet(times):                       
+    def actual_decorator(func):              
+        def wrapper(*args, **kwargs):        
+            for _ in range(times):
+                result = func(*args, **kwargs) # Runs the print statement repeatedly
+            return result
+        return wrapper
+    return actual_decorator
+
+@multi_greet(times=5)
+def display_name(user_name):
+    print(f"Hey {user_name}!")
+    return user_name
+
+# 1. Take the input ONCE outside the function
+name_input = input("Enter your Name: ")
+
+# 2. Pass it in so the decorator can repeat the print block 5 times
+n = display_name(name_input)
