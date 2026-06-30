@@ -1,0 +1,31 @@
+import random
+def execute_time(retry):
+    def actual_dec(func):
+        def wrapper(*args,**kwargs):
+            for _ in range(retry):
+                try:
+                    result=func(*args,**kwargs)
+                    return result
+                except Exception as e:
+                    print(f"[Attempt failed]: Retrying due to error: {e}")
+        return wrapper
+    return actual_dec
+call_count = 0
+@execute_time(retry=3)
+def fetch_api_data():
+    global call_count
+    call_count += 1
+    
+    if call_count < 3:
+        # Force a network failure for the first two attempts!
+        raise ConnectionError("Server timed out.")
+    
+    return "Data downloaded successfully!"
+
+# Run your retry decorator against the unstable connection
+print("--- Starting Network Request ---")
+data = fetch_api_data()
+print("\nFinal Result:", data)
+
+
+
