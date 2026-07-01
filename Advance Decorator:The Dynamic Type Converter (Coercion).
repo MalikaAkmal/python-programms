@@ -1,0 +1,22 @@
+from functools import wraps
+def converter(target_type):
+    def actual_decorator(func):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            if args:
+                converted_arg = target_type(args[0])
+            return func(converted_arg, *args[1:], **kwargs)
+        return wrapper
+    return actual_decorator
+@converter(target_type=float)
+def calculate_square(n):
+    print(f"The square of {n} ({type(n).__name__}) is: {n ** 2}")
+print("--- Test 1: Passing a String ---")
+calculate_square("5.5")
+
+print("\n--- Test 2: Passing an Integer ---")
+calculate_square(10)
+
+    
+
+            
