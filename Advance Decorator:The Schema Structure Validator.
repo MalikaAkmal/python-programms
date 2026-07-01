@@ -1,0 +1,38 @@
+from functools import wraps
+
+def require_keys(required_keys):
+    def actual_decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            if args and isinstance(args[0], dict):
+                input_dict = args[0]
+                # 1. Check if all required keys are present in input_dict
+                # Hint: You can use an all() loop or a simple for loop to check
+                missing_found = False
+                for key in required_keys:
+                    if key not in input_dict:
+                        missing_found = True
+                        break
+                
+                if missing_found:
+                    print("[Validation Error]: Missing required data fields!")
+                    return None
+                    
+                return func(*args, **kwargs)
+            return func(*args, **kwargs)
+        return wrapper
+    return actual_decorator
+
+# Configure the decorator to protect this user profile processing function
+@require_keys(required_keys=["username", "email", "age"])
+def process_user_profile(user_data):
+    print(f"Successfully processed profile for: {user_data['username']}")
+
+# --- Test Cases ---
+print("--- Test 1: Complete Data ---")
+good_user = {"username": "malika", "email": "malika@example.com", "age": 20}
+process_user_profile(good_user)
+
+print("\n--- Test 2: Incomplete Data (Missing 'email') ---")
+bad_user = {"username": "zainab", "age": 21}
+process_user_profile(bad_user)
