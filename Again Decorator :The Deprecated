@@ -1,0 +1,20 @@
+from functools import wraps
+def deprecated(instead_use):
+    def actual_decorator(func):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            print(f"[Warning]: '{func.__name__}' is outdated and will be removed soon! Please update your code to use '{instead_use}' instead.")
+            return func(*args,**kwargs)
+        return wrapper
+    return actual_decorator
+@deprecated(instead_use="Advance filter")
+def legacy_filter(data_list):
+    # Old slow filtering logic
+    return [x for x in data_list if x % 2 == 0]
+n=[]
+for i in range(10):
+    no=int(input("Enter number"))
+    n.append(no)
+display=legacy_filter(n)
+print(display)
+            
