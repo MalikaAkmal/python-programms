@@ -1,0 +1,27 @@
+from functools import wraps
+
+def enforce_types(expected_type):
+    def actual_decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            # 1. Check if args has items, then verify the type of args[0]
+            if args and isinstance(args[0], expected_type):
+                # Run the function cleanly if it matches
+                return func(*args, **kwargs)
+            else:
+                # Block it if it's the wrong data type!
+                print("[Type Error]: Invalid argument type provided!")
+                return None
+        return wrapper
+    return actual_decorator
+
+@enforce_types(expected_type=int)
+def process_id(user_id):
+    print(f"Processing database records for User ID: {user_id}")
+
+# --- Test Cases ---
+print("--- Test 1: Passing an Integer ---")
+process_id(1044)
+
+print("\n--- Test 2: Passing a String ---")
+process_id("1044")
