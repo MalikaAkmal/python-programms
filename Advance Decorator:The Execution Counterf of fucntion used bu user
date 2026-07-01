@@ -1,0 +1,31 @@
+from functools import wraps
+
+def counter_decorator(func):
+    call = 0  # 👈 Every function gets its own unique 'call' variable here!
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        nonlocal call
+        call += 1
+        result = func(*args, **kwargs)
+        print(f"[Analytics]: '{func.__name__}' has been executed {call} time(s).")
+        return result
+    return wrapper
+
+@counter_decorator
+def process_invoice(amount):
+    return f"Invoice processing: ${amount}"
+
+@counter_decorator
+def send_email(user):
+    return f"Email sent to {user}"
+
+# --- Test Runs ---
+print("--- Triggering Invoice ---")
+process_invoice(500)
+process_invoice(250)
+
+print("\n--- Triggering Email ---")
+send_email("Malika")
+
+print("\n--- Triggering Invoice Again ---")
+process_invoice(100)
