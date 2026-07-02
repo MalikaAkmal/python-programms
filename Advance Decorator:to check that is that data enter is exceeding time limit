@@ -1,0 +1,24 @@
+import time
+from functools import wraps
+def time_limit(max_time):
+    def actual_decorator(func):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            start=time.time()
+            result=func(*args,**kwargs)
+            result_new=result.upper()
+            line="-".join(result_new)
+            end=time.time()
+            time_taken=end-start
+            if time_taken>max_time:
+                print(f"[Performance Warning]: '{func.__name__}' took {time_taken:.4f}s, exceeding the limit of {max_time}s!")
+            return line
+        return wrapper
+    return actual_decorator
+        
+@time_limit(max_time=0.5)
+def print_message():
+    message=input("enter the text you want to format: ")
+    return message
+display=print_message()
+print(display)
