@@ -1,0 +1,27 @@
+
+from functools import wraps
+
+def clean_output_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        # 1. Run the function first to get the raw file content string
+        result = func(*args, **kwargs)
+        
+        # 2. Check if the returned result is a string
+        if isinstance(result, str):
+            # Clean it and return the cleaned version!
+            return result.strip().lower()
+            
+        return result
+    return wrapper
+
+@clean_output_decorator
+def json_data():
+    # Fixed: Changed 'file' to 'open'
+    with open("Decorator_file.txt", "r") as file:
+        content = file.read()
+        return content
+
+# --- Run and Print ---
+# Fixed: Added () to execute the function!
+print(json_data())
