@@ -1,0 +1,21 @@
+from functools import wraps
+def tag_fixer(tag):
+    def actual_decorator(func):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            result=func(*args,**kwargs)
+            return f"<{tag}>{result}</{tag}>"
+        return wrapper
+    return actual_decorator
+@tag_fixer(tag="h")
+def get_string(username):
+    return f"Hello Welcome Back {username}"
+@tag_fixer(tag="p")
+def para_maker(uppercase=True):
+    string_get=input("enter your paragraph: ")
+    if uppercase:
+        return string_get.upper()
+    return string_get
+display=para_maker()
+get_string("malika akmal")
+print(display)
